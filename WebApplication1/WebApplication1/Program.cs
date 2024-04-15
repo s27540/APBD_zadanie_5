@@ -1,9 +1,16 @@
+using WebApplication1.Animal;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<IAnimalRepository, AnimalRepository>();
+builder.Services.AddSingleton<IAnimalService, AnimalService>();
+
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -15,5 +22,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapControllers();
 app.Run();
 

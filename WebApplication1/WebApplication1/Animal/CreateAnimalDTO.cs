@@ -1,8 +1,10 @@
-﻿namespace WebApplication1.Animal;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class Animal
+namespace WebApplication1.Animal;
+
+public class CreateAnimalDTO
 {
-    public int IdAnimal { get; set; }
+    [Required]
     public string Name { get; set; }
     public string Description { get; set; }
     public string Category { get; set; }
